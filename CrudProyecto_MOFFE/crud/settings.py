@@ -4,7 +4,6 @@ Django settings for crud project.
 
 from pathlib import Path
 import os
-import dj_database_url  # nuevo
 import pymysql
 
 # Configuración del conector para XAMPP (solo se usa si no hay DATABASE_URL)

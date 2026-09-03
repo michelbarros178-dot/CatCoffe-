@@ -1,14 +1,14 @@
 {
   "builds": [
     {
-      "src": "CrudProyecto_MOFFE/crud/crud/wsgi.py",
+      "src": "CrudProyecto_MOFFE/crud/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "CrudProyecto_MOFFE/crud/crud/wsgi.py"
+      "dest": "CrudProyecto_MOFFE/crud/wsgi.py"
     }
   ]
 }
