@@ -4,21 +4,25 @@ Django settings for crud project.
 
 from pathlib import Path
 import os
-import pymysql
-import dj_database_url  # ⬅️ AGREGAR ESTA IMPORTACIÓN
+import dj_database_url
 
-# Configuración del conector para XAMPP (solo se usa si no hay DATABASE_URL)
-pymysql.install_as_MySQLdb()
-
-# Build paths
+# -----------------------------------------------------------------------------
+# RUTAS BASE (BASE_DIR)
+# -----------------------------------------------------------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY
+# -----------------------------------------------------------------------------
+# SEGURIDAD Y DEPURACIÓN
+# -----------------------------------------------------------------------------
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-ce=(80ay2tk!f913xkdv&)7e2gbj1omls-8ojl##)g75&k8c(=')
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app']
 
-# APPS
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+
+ALLOWED_HOSTS = ['*']
+
+# -----------------------------------------------------------------------------
+# APLICACIONES INSTALADAS
+# -----------------------------------------------------------------------------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -26,13 +30,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Aplicaciones propias
     'productos',
 ]
 
-# MIDDLEWARE (con WhiteNoise)
+# -----------------------------------------------------------------------------
+# MIDDLEWARE
+# -----------------------------------------------------------------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ⬅️ Debe estar después de Security
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Justo debajo de SecurityMiddleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -43,6 +50,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'crud.urls'
 
+# -----------------------------------------------------------------------------
+# PLANTILLAS (TEMPLATES)
+# -----------------------------------------------------------------------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -60,9 +70,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'crud.wsgi.application'
 
-# ---------- BASE DE DATOS (flexible) ----------
-# Si existe DATABASE_URL (en Vercel), usamos PostgreSQL; si no, MySQL local.
+# -----------------------------------------------------------------------------
+# BASE DE DATOS
+# -----------------------------------------------------------------------------
 if 'DATABASE_URL' in os.environ:
+    # Producción en Vercel / Servidor en la nube (PostgreSQL / MySQL remoto)
     DATABASES = {
         'default': dj_database_url.config(
             default=os.environ.get('DATABASE_URL'),
@@ -71,7 +83,17 @@ if 'DATABASE_URL' in os.environ:
         )
     }
 else:
-    # Desarrollo local con XAMPP (MySQL)
+    # Desarrollo Local con XAMPP / MariaDB
+    import pymysql
+    pymysql.install_as_MySQLdb()
+
+    # Parche para versiones antiguas de MariaDB (Solo Local)
+    from django.db.backends.mysql.features import DatabaseFeatures
+    DatabaseFeatures.can_return_columns_from_insert = property(lambda x: False)
+    DatabaseFeatures.can_return_rows_from_bulk_insert = property(lambda x: False)
+    import django.db.backends.mysql.base
+    django.db.backends.mysql.base.DatabaseWrapper.check_database_version_supported = lambda x: None
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -86,35 +108,49 @@ else:
         }
     }
 
-# Password validation
-AUTH_PASSWORD_VALIDATORS = [...]
+# -----------------------------------------------------------------------------
+# VALIDACIÓN DE CONTRASEÑAS
+# -----------------------------------------------------------------------------
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
 
-# Internationalization
+# -----------------------------------------------------------------------------
+# INTERNACIONALIZACIÓN Y ZONA HORARIA
+# -----------------------------------------------------------------------------
 LANGUAGE_CODE = 'es-co'
 TIME_ZONE = 'America/Bogota'
 USE_I18N = True
 USE_TZ = True
 
-# Static files
-STATIC_URL = 'static/'
+# -----------------------------------------------------------------------------
+# ARCHIVOS ESTÁTICOS Y MULTIMEDIA
+# -----------------------------------------------------------------------------
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media files
+# Almacenamiento optimizado de WhiteNoise sin fallos de compilación
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
 
-# Redirects
+# -----------------------------------------------------------------------------
+# REDIRECCIONES DE AUTENTICACIÓN
+# -----------------------------------------------------------------------------
 LOGIN_REDIRECT_URL = 'inicio'
 LOGOUT_REDIRECT_URL = 'login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Parche para MariaDB (solo local)
-if 'DATABASE_URL' not in os.environ:
-    from django.db.backends.mysql.features import DatabaseFeatures
-    DatabaseFeatures.can_return_columns_from_insert = property(lambda x: False)
-    DatabaseFeatures.can_return_rows_from_bulk_insert = property(lambda x: False)
-    import django.db.backends.mysql.base
-    django.db.backends.mysql.base.DatabaseWrapper.check_database_version_supported = lambda x: None

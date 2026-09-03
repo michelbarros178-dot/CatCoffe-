@@ -1,8 +1,9 @@
 import os
 import sys
 
-# Apunta al directorio padre (CrudProyecto_MOFFE)
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+# Agrega la carpeta contenedora (CrudProyecto_MOFFE) al path
+base_dir = os.path.dirname(os.path.dirname(__file__))
+sys.path.append(base_dir)
 
 from django.core.wsgi import get_wsgi_application
 
