@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Moffe{% endblock %}</title>
+
+    <!-- Fuentes y Iconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/loader.css' %}"> <!-- ✅ -->
+
+</head>
+
+<body>
+
+<!-- 🔥 LOADER -->
+<div id="loader">
+    <img src="{% static 'images/loader.gif.gif' %}" alt="Cargando...">
+</div>
+
+<!-- CONTENIDO -->
+<div id="contenido">
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="{% static 'images/logo_moffe.png' %}" alt="Moffe Logo" class="nav-logo-img">
+                    Moffe
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="{% url 'inicio' %}" class="{% if request.resolver_match.url_name == 'inicio' %}active{% endif %}">Inicio</a></li>
+                    <li><a href="{% url 'nosotros' %}" class="{% if request.resolver_match.url_name == 'nosotros' %}active{% endif %}">Nosotros</a></li>
+                    <li><a href="{% url 'servicios' %}" class="{% if request.resolver_match.url_name == 'servicios' %}active{% endif %}">Servicios</a></li>
+                    <li><a href="{% url 'porque_elegirnos' %}" class="{% if request.resolver_match.url_name == 'porque_elegirnos' %}active{% endif %}">¿Por qué nosotros?</a></li>
+                    <li><a href="{% url 'login' %}" class="{% if request.resolver_match.url_name == 'login' %}active{% endif %} btn-nav-login" style="text-decoration:none; padding:10px 20px; background:#fff; color:#000; border-radius:5px;">Iniciar sesión</a></li>
+                    <li><a href="#" class="btn-reserva">Reservar <i class="fas fa-calendar"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <section class="contact-section">
+    <div class="contact-container">
+
+        <!-- MAPA -->
+        <div class="map-box">
+            <iframe 
+                src="https://www.google.com/maps?q=Bello,Antioquia&output=embed"
+                loading="lazy">
+            </iframe>
+        </div>
+
+        <!-- FORMULARIO -->
+        <div class="contact-form">
+            <h2>Contáctanos</h2>
+
+            <form>
+                <div class="input-group">
+                    <input type="text" required>
+                    <label>Nombre</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" required>
+                    <label>Apellido</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea required></textarea>
+                    <label>Mensaje</label>
+                </div>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Moffe</h3>
+            <p>El lugar perfecto para disfrutar de café excelente y la compañía de adorables gatos.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h4>Contacto</h4>
+            <p><i class="fas fa-map-marker-alt"></i> Bello, Antioquia</p>
+            <p><i class="fas fa-phone"></i> +57 300 123 4567</p>
+        </div>
+        <div class="footer-section">
+            <h4>Horarios</h4>
+            <p>Lun-Vie: 8:00 - 22:00</p>
+            <p>Sáb-Dom: 9:00 - 23:00</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Moffe. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</div>
+
+<script src="{% static 'js/JavaScript.js' %}"></script>
+<script src="{% static 'js/loader.js' %}"></script> 
+<script src="{% static 'js/huellas.js' %}"></script> 
+
+</body>
+</html>

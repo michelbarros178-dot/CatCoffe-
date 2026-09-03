@@ -1,0 +1,106 @@
+{% extends 'paginas/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- HERO NOSOTROS -->
+<section class="about-hero reveal">
+    <div class="about-hero-content">
+        <h1>Sobre <span>Moffe</span></h1>
+        <p>Más que un café, somos un hogar temporal lleno de amor, café y ronroneos.</p>
+    </div>
+</section>
+
+<!-- HISTORIA -->
+<section class="about-story reveal">
+    <div class="about-container">
+
+        <div class="about-text">
+            <span class="subtitle">Nuestra historia</span>
+            <h2>Un lugar donde el café y el amor se encuentran</h2>
+            <p>
+                Moffe nació con un propósito: crear un espacio donde las personas puedan
+                disfrutar de un buen café mientras comparten con gatos rescatados que
+                buscan un hogar lleno de cariño.
+            </p>
+            <p>
+                Cada detalle está pensado para brindar tranquilidad, calidez y conexión.
+                Aquí, cada visita ayuda a cambiar la vida de nuestros felinos.
+            </p>
+        </div>
+
+        <div class="about-images">
+            <div class="img-leaf leaf-1">
+                <img src="{% static 'images/cafegato1.jpg' %}">
+            </div>
+            <div class="img-leaf leaf-2">
+                <img src="{% static 'images/cafegato3.jpg' %}">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- VALORES -->
+<section class="about-values reveal">
+    <span class="subtitle">Nuestros valores</span>
+    <h2>Lo que nos hace especiales</h2>
+
+    <div class="values-grid">
+
+        <div class="value-card">
+            <i class="fas fa-heart"></i>
+            <h3>Amor animal</h3>
+            <p>Cuidamos y protegemos a cada gato con dedicación y respeto.</p>
+        </div>
+
+        <div class="value-card">
+            <i class="fas fa-coffee"></i>
+            <h3>Calidad</h3>
+            <p>Ofrecemos café y alimentos preparados con excelencia.</p>
+        </div>
+
+        <div class="value-card">
+            <i class="fas fa-home"></i>
+            <h3>Hogar</h3>
+            <p>Un espacio cálido donde puedes relajarte y sentirte en casa.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- EQUIPO -->
+<section class="about-team reveal">
+    <span class="subtitle">Nuestro equipo</span>
+    <h2>Personas que hacen posible Moffe</h2>
+
+    <div class="team-grid">
+
+        <div class="team-card">
+            <img src="{% static 'images/fundadora1.png' %}">
+            <h3>Valu</h3>
+            <p>Fundadora & amante de los gatos</p>
+        </div>
+
+        <div class="team-card">
+            <img src="{% static 'images/fundadora2.png' %}">
+            <h3>Cheli</h3>
+            <p>Fundadora & amante de los gatos</p>
+        </div>
+
+        <div class="team-card">
+            <img src="{% static 'images/barista1.jpg' %}">
+            <h3>Equipo Barista</h3>
+            <p>Expertos en café y arte latte</p>
+        </div>
+
+        <div class="team-card">
+            <img src="{% static 'images/cuidadora1.jpg' %}">
+            <h3>Cuidadores</h3>
+            <p>Encargados del bienestar felino</p>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

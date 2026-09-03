@@ -1,0 +1,250 @@
+{% extends 'paginas/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- =========================================
+     🐾 HERO SERVICES
+========================================= -->
+
+<section class="services-hero reveal">
+
+    <div class="services-overlay"></div>
+
+    <div class="services-hero-content">
+        <span class="subtitle">Experiencias únicas</span>
+
+        <h1>
+            Servicios <span>Moffe</span>
+        </h1>
+
+        <p>
+            Un espacio donde el café artesanal, los gatos rescatados
+            y la tranquilidad se unen para crear momentos inolvidables.
+        </p>
+
+        <div class="services-buttons">
+            <a href="#" class="btn-primary">
+                Reservar experiencia
+            </a>
+
+            <a href="#" class="btn-outline">
+                Ver menú
+            </a>
+        </div>
+    </div>
+
+</section>
+
+<!-- =========================================
+     ☕ INFO STRIP
+========================================= -->
+
+<section class="service-strip">
+
+    <div class="strip-item">
+        <i class="fas fa-cat"></i>
+        <h3>+20 gatos rescatados</h3>
+    </div>
+
+    <div class="strip-item">
+        <i class="fas fa-mug-hot"></i>
+        <h3>Café premium</h3>
+    </div>
+
+    <div class="strip-item">
+        <i class="fas fa-heart"></i>
+        <h3>Espacios terapéuticos</h3>
+    </div>
+
+    <div class="strip-item">
+        <i class="fas fa-paw"></i>
+        <h3>Adopciones responsables</h3>
+    </div>
+
+</section>
+
+<!-- =========================================
+     🐾 SERVICIOS
+========================================= -->
+
+<section class="services-section reveal">
+
+    <span class="subtitle">Nuestros servicios</span>
+    <h2>Vive la experiencia Moffe</h2>
+
+    <div class="services-grid">
+
+        <!-- 1 -->
+        <div class="service-card">
+            <div class="service-img">
+                <img src="{% static 'images/cafeygatos4.jpg' %}">
+            </div>
+
+            <div class="service-icon">
+                <i class="fas fa-mug-hot"></i>
+            </div>
+
+            <h3>Café & Gatos</h3>
+
+            <p>
+                Disfruta bebidas artesanales mientras compartes
+                con nuestros gatos en un ambiente relajante.
+            </p>
+
+            <a href="#">Explorar</a>
+        </div>
+
+        <!-- 2 -->
+        <div class="service-card">
+            <div class="service-img">
+                <img src="{% static 'images/rescatados1.jpg' %}">
+            </div>
+
+            <div class="service-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+
+            <h3>Adopciones</h3>
+
+            <p>
+                Conoce gatos rescatados que buscan una familia
+                llena de amor y cuidados.
+            </p>
+
+            <a href="#">Conocer gatos</a>
+        </div>
+
+        <!-- 3 -->
+        <div class="service-card">
+            <div class="service-img">
+                <img src="{% static 'images/eventos1.jpg' %}">
+            </div>
+
+            <div class="service-icon">
+                <i class="fas fa-birthday-cake"></i>
+            </div>
+
+            <h3>Eventos Especiales</h3>
+
+            <p>
+                Celebra cumpleaños, reuniones y momentos únicos
+                rodeado de café y ronroneos.
+            </p>
+
+            <a href="#">Reservar evento</a>
+        </div>
+
+        <!-- 4 -->
+        <div class="service-card">
+            <div class="service-img">
+                <img src="{% static 'images/relax1.jpg' %}">
+            </div>
+
+            <div class="service-icon">
+                <i class="fas fa-book-open"></i>
+            </div>
+
+            <h3>Zona Relax</h3>
+
+            <p>
+                Lee, estudia o trabaja en un ambiente cálido
+                acompañado de nuestros felinos.
+            </p>
+
+            <a href="#">Descubrir</a>
+        </div>
+
+        <!-- 5 -->
+        <div class="service-card">
+            <div class="service-img">
+                <img src="{% static 'images/recuerdos1.jpg' %}">
+            </div>
+
+            <div class="service-icon">
+                <i class="fas fa-camera-retro"></i>
+            </div>
+
+            <h3>Sesiones Fotográficas</h3>
+
+            <p>
+                Captura recuerdos adorables con nuestros gatos
+                y rincones aesthetic del café.
+            </p>
+
+            <a href="#">Agendar sesión</a>
+        </div>
+
+        <!-- 6 -->
+        <div class="service-card">
+            <div class="service-img">
+                <img src="{% static 'images/crunch1.jpg' %}">
+            </div>
+
+            <div class="service-icon">
+                <i class="fas fa-cookie-bite"></i>
+            </div>
+
+            <h3>Brunch Felino</h3>
+
+            <p>
+                Combina postres artesanales, brunch y compañía
+                gatuna en una experiencia única.
+            </p>
+
+            <a href="#">Ver menú</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     ✨ EXPERIENCIA PREMIUM
+========================================= -->
+
+<section class="premium-experience reveal">
+
+    <div class="premium-content">
+
+        <span class="subtitle">Experiencia premium</span>
+
+        <h2>
+            Mucho más que un café
+        </h2>
+
+        <p>
+            Creamos un entorno diseñado para relajarte,
+            desconectarte del estrés y conectar con la
+            tranquilidad que transmiten nuestros gatos.
+        </p>
+
+        <div class="premium-features">
+
+            <div class="premium-item">
+                <i class="fas fa-wifi"></i>
+                <span>WiFi Gratis</span>
+            </div>
+
+            <div class="premium-item">
+                <i class="fas fa-plug"></i>
+                <span>Zona coworking</span>
+            </div>
+
+            <div class="premium-item">
+                <i class="fas fa-music"></i>
+                <span>Ambiente relajante</span>
+            </div>
+
+            <div class="premium-item">
+                <i class="fas fa-leaf"></i>
+                <span>Espacio acogedor</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

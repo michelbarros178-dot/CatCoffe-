@@ -1,0 +1,210 @@
+{% extends 'paginas/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- HERO -->
+<section class="hero reveal">
+<div class="hero-text">
+    <h1>Calidez para tu alma con <span>Moffe</span></h1>
+    <!-- NUEVO SUBTÍTULO -->
+    <h2 style="font-family: 'Playfair Display', serif; color: var(--accent); font-size: 1.8rem; margin-bottom: 1rem;">
+        Donde cada ronroneo acompaña tu taza perfecta
+    </h2>
+    
+    <!-- NUEVO PÁRRAFO -->
+    <p>
+        En Moffe, creemos que el café sabe mejor en buena compañía. Hemos creado un refugio diseñado para los amantes de los felinos y los paladares exigentes, donde el aroma del grano recién tostado se mezcla con la tranquilidad de un espacio pensado para el descanso.
+    </p>
+    
+    <a href="#productos" class="btn-primary">Explorar Productos</a>
+</div>
+
+    <div class="hero-image">
+        <img src="{% static 'images/Header1.jpg' %}" class="img-arc" alt="Hero Cat">
+    </div>
+</section>
+
+<!-- STATS CON CONTADORES PRO -->
+<section class="stats-bar">
+
+    <div class="stat">
+        <i class="fas fa-paw"></i>
+        <h2 class="counter" data-target="5000" data-suffix="+">0</h2>
+        <p>Visitas felices</p>
+    </div>
+
+    <div class="stat">
+        <i class="fas fa-cat"></i>
+        <h2 class="counter" data-target="120" data-suffix="+">0</h2>
+        <p>Gatos rescatados</p>
+    </div>
+
+    <div class="stat">
+        <i class="fas fa-heart"></i>
+        <h2 class="counter" data-target="100" data-suffix="%">0</h2>
+        <p>Ambiente acogedor</p>
+    </div>
+
+    <div class="stat">
+        <i class="fas fa-users"></i>
+        <h2 class="counter" data-target="300" data-suffix="+">0</h2>
+        <p>Clientes frecuentes</p>
+    </div>
+
+</section>
+
+<!-- ABOUT DETAILED -->
+<section class="about-detailed reveal">
+    <div class="about-container">
+        <div class="about-text">
+            <span class="subtitle">Conoce un poco sobre nosotros</span>
+            <h2>¿Por qué somos los mejores?</h2>
+            <p>En Moffe somos un café de gatos donde cada visita se convierte en una experiencia única. 
+            Rescatamos, cuidamos y brindamos un hogar temporal a gatitos, mientras tú disfrutas 
+            de una taza de café en un ambiente lleno de calma, cariño y ronroneos.</p>
+            <button class="btn-outline">Conoce más acerca de nosotros aquí ↘</button>
+        </div>
+        <div class="about-images">
+            <div class="img-leaf leaf-1"><img src="{% static 'images/caffe1.jpg' %}" alt="Prep"></div>
+            <div class="img-leaf leaf-2"><img src="{% static 'images/coffe3.jpg' %}" alt="Beans"></div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCTOS CON FILTRO -->
+<section class="products-section reveal" id="productos">
+    <span class="subtitle">Nuestros servicios</span>
+    <h2>¡Ven y disfrutalos!</h2>
+
+    <!-- 🔘 BOTONES -->
+<div class="categorias">
+    <button class="btn-cat active" data-cat="bebidas">☕ Bebidas</button>
+    <button class="btn-cat" data-cat="salado">🍔 Salado</button>
+    <button class="btn-cat" data-cat="dulce">🍩 Dulce</button>
+</div>
+
+    <!-- 🖼️ PRODUCTOS -->
+    <div class="product-grid">
+
+        <!-- BEBIDAS -->
+        <div class="product-card floating bebidas">
+            <img src="{% static 'images/americano.jpg' %}" alt="Coffee">
+            <h3>Americano Cat</h3>
+            <div class="price-row"><span>$2.5</span><button class="add-btn">+</button></div>
+        </div>
+
+        <div class="product-card floating-delayed bebidas">
+            <img src="{% static 'images/latte.jpg' %}" alt="Coffee">
+            <h3>Latte Cat</h3>
+            <div class="price-row"><span>$2.7</span><button class="add-btn">+</button></div>
+        </div>
+
+        <div class="product-card floating bebidas">
+            <img src="{% static 'images/cappuccino2.jpg' %}" alt="Coffee">
+            <h3>Cappuccino Cat</h3>
+            <div class="price-row"><span>$2.8</span><button class="add-btn">+</button></div>
+        </div>
+
+        <!-- SALADO -->
+        <div class="product-card floating salado oculto">
+            <img src="{% static 'images/burguer.jpg' %}" alt="Food">
+            <h3>Burguer Cat</h3>
+            <div class="price-row"><span>$5.0</span><button class="add-btn">+</button></div>
+        </div>
+
+        <div class="product-card floating-delayed salado oculto">
+            <img src="{% static 'images/croissant.jpg' %}" alt="Food">
+            <h3>Croissant Cat</h3>
+            <div class="price-row"><span>$3.5</span><button class="add-btn">+</button></div>
+        </div>
+
+        <div class="product-card floating salado oculto">
+            <img src="{% static 'images/nuggets.jpg' %}" alt="Food">
+            <h3>Nuggets Cat</h3>
+            <div class="price-row"><span>$4.0</span><button class="add-btn">+</button></div>
+        </div>
+
+        <!-- DULCE -->
+        <div class="product-card floating dulce oculto">
+            <img src="{% static 'images/donuts.jpg' %}" alt="Dessert">
+            <h3>Donuts Cat</h3>
+            <div class="price-row"><span>$2.2</span><button class="add-btn">+</button></div>
+        </div>
+
+        <div class="product-card floating-delayed dulce oculto">
+            <img src="{% static 'images/pancakes.jpg' %}" alt="Dessert">
+            <h3>Pancakes Cat</h3>
+            <div class="price-row"><span>$3.0</span><button class="add-btn">+</button></div>
+        </div>
+
+        <div class="product-card floating-delayed dulce oculto">
+            <img src="{% static 'images/cinnamon.jpg' %}" alt="Dessert">
+            <h3>Cinnamon rolls Cat</h3>
+            <div class="price-row"><span>$4.5</span><button class="add-btn">+</button></div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SECTION: BLOG -->
+<section class="blog-section reveal">
+    <div class="blog-header">
+        <span class="subtitle">Blog</span>
+        <h2>¡Conoce algunas de nuestras reseñas!</h2>
+    </div>
+    
+    <div class="blog-grid">
+        <!-- Artículo 1 -->
+        <div class="blog-card">
+            <div class="blog-img-wrapper">
+                <img src="{% static 'images/cafegato1.jpg' %}" alt="Blog 1">
+            </div>
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span><i class="far fa-user"></i> Reseña 1</span>
+                    <span><i class="far fa-calendar"></i> Feb 23, 2024</span>
+                </div>
+                <h3>Amor y bienestar felino</h3>
+                <p>Desde el momento en que entras, se siente un ambiente tranquilo y lleno de cariño. Los gatitos están bien cuidados, limpios y se nota que reciben atención constante. No es solo un café, es un refugio donde ellos son parte de la familia. Me encantó cómo se acercan con confianza y cómo todo está pensado para su comodidad. Sin duda, un lugar donde uno se siente acogido y en paz.</p>
+                <a href="#" class="view-details">Ver más detalles ></a>
+            </div>
+        </div>
+
+        <!-- Artículo 2 -->
+        <div class="blog-card">
+            <div class="blog-img-wrapper">
+                <img src="{% static 'images/menu_moffe.png' %}" alt="Blog 2">
+            </div>
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span><i class="far fa-user"></i> Reseña 2</span>
+                    <span><i class="far fa-calendar"></i> August 09, 2024</span>
+                </div>
+                <h3>Un menú delicioso</h3>
+                <p>La experiencia gastronómica es simplemente increíble. Cada bebida y cada postre tienen un sabor auténtico y bien equilibrado. Probé varios cafés y todos estaban perfectamente preparados, con ese toque especial que los hace únicos. Es el tipo de lugar al que quieres volver solo por el menú, porque siempre te quedas con ganas de probar algo más.</p>
+                <a href="#" class="view-details">Ver más detalles ></a>
+            </div>
+        </div>
+
+        <!-- Artículo 3 -->
+        <div class="blog-card">
+            <div class="blog-img-wrapper">
+                <img src="{% static 'images/cafegato3.jpg' %}" alt="Blog 3">
+            </div>
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span><i class="far fa-user"></i> Reseña 3</span>
+                    <span><i class="far fa-calendar"></i> May 12, 2024</span>
+                </div>
+                <h3>Arte en cada taza</h3>
+                <p>Lo que realmente sorprende es la creatividad en cada bebida. Los diseños en los lattes y cappuccinos son auténticas obras de arte. Desde caritas de gatitos hasta detalles súper elaborados, cada taza es una experiencia visual antes de probarla. Se nota la dedicación y el talento detrás de cada preparación. Definitivamente, un lugar donde el café también se disfruta con los ojos.</p>
+                <a href="#" class="view-details">Ver más detalles ></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="blog-footer">
+        <button class="btn-light-rounded">READ MORE ↘</button>
+    </div>
+</section>
+{% endblock %}
