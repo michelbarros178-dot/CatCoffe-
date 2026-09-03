@@ -4,10 +4,10 @@
       "runtime": "python3.12"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "vercel.py"
+      "source": "/(.*)",
+      "destination": "vercel.py"
     }
   ]
 }
